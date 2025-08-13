@@ -24,7 +24,6 @@ export default forwardRef (function IconButton(
         <motion.button
             type={ type }
             ref={ ref }
-            type="button"
             aria-label={ label }
             aria-haspopup={ hasPopup ? "menu" : undefined }
             aria-expanded={ typeof expanded === "boolean" ? expanded : undefined }
