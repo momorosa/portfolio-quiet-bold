@@ -1,9 +1,9 @@
-import ProjectBlurb from "../components/ProjectBlurb"   
+import HomeUI from "../components/HomeUI.jsx"
 
 export default function Home() {
     return(
         <main className="w-screen">
-            <ProjectBlurb />
+            <HomeUI />
         </main>
     )
 }
