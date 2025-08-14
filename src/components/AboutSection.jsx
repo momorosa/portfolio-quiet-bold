@@ -16,7 +16,8 @@ export default function AboutSection( { content }) {
 
                 <Button
                     id="btn"
-                    href="mailto:momorosa.design@gmail.com"
+                    href={`mailto:momorosa.design@gmail.com?subject=${encodeURIComponent(
+                        "Quick hello from your site — let's chat")}`}
                     className="font-medium text-black bg-yellow-mellow px-5 py-3 mt-4"
                     aria-label={ content.buttonLabel}
                     rightIcon="send"
