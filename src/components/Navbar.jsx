@@ -14,7 +14,7 @@ export default function Navbar() {
 
     return(
         <>
-            <nav className="fixed top-0 left-0 w-screen md:w-24 md:h-dvh z-50">
+            <nav className="fixed top-0 left-0 w-screen md:w-24 md:h-dvh md:pb-8 z-50">
                 <div className="flex flex-row h-auto items-center justify-between p-6 bg-transparent
                     md:flex-col md:h-full md:p-6"
                 >

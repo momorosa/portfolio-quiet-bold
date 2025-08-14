@@ -1,6 +1,4 @@
 export const projects = {
-    headline: "I design and build AI-powered products from vision to working reality—delighting consumers, delivering personalized recommendations, and unifying enterprise systems. These featured projects demonstrate my range as a full-stack senior product designer who codes, blending product strategy, UX/UI craft, and hands-on development to create production-ready experiences people love to use.",
-
     projectBlurbs: [
         {
             tagline: "AI for Consumer Delight",
