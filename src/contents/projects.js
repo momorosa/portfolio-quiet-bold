@@ -6,6 +6,8 @@ export const projects = {
             description: "An AI-powered cooking assistant that transforms available ingredients into personalized, visually engaging recipes—integrating conversational AI, thoughtful UX, and polished front-end engineering.",
             skills: "LLM prompt design, Interaction design, Front-end development",
             buttonLabel: "View Project",
+            credit: "MacBook 3D model from pmndrs Market",
+            creditUrl: "https://market.pmnd.rs/model/macbook"  
         },
         {
             tagline: "AI for Personalized Recommendations",

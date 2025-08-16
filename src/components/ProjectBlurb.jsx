@@ -26,6 +26,12 @@ export default function ProjectBlurb() {
                         >
                             {project.buttonLabel}
                         </Button>
+                        {/* Credit for models */}
+                        <p className="pt-4"> 
+                            <a className="text-warm-gray-medium italic text-sm" href={ project.creditUrl } target="_blank" rel="noreferrer noopener">
+                                { project.credit }
+                            </a>
+                        </p>
                     </div>
                 </Section>))
             }
