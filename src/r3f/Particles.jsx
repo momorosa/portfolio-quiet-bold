@@ -11,7 +11,7 @@ export default function Particles() {
   const { canvas, context, texture } = useMemo(() => {
     const size = 128
     const c = document.createElement('canvas')
-    c.width = c.height = size
+    c.width = c.height = size 
     const ctx = c.getContext('2d')
     ctx.fillRect(0, 0, size, size)
     return { canvas: c, context: ctx, texture: new THREE.CanvasTexture(c) }
