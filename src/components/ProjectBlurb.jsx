@@ -16,12 +16,11 @@ export default function ProjectBlurb() {
                         </p>
                         <Button
                             id="btn"
-                            href="/"
+                            href="/chef-claude"
                             className="font-medium text-black bg-yellow-mellow px-5 py-3 mt-4"
                             aria-label={ project.buttonLabel}
                             rightIcon="east"
                             iconSize="md-18"
-                            target="_blank"
                             rel="noopener noreferrer"
                         >
                             {project.buttonLabel}
