@@ -11,6 +11,38 @@
     --font-primary: "Montserrat", "sans-serif";
 }
 
+@layer base {
+    :root {
+        --lineStroke: 2px;
+        --linkColor: #CF9033;
+        --filledLine: var(--linkColor);
+        --lineOpacity: 30%;
+        --unfilledLine: color-mix(in lab, var(--linkColor) var(--lineOpacity), transparent);
+    }
+}
+
+@layer utilities {
+    .fancy-link {
+        cursor: pointer;
+        color: var(--linkColor);
+        padding-bottom: var(--lineStroke);
+        background:
+            linear-gradient(var(--filledLine), var(--filledLine)) no-repeat 100% 100% / 0 var(--lineStroke),
+            linear-gradient(var(--unfilledLine), var(--unfilledLine)) no-repeat 0 100% / 100% var(--lineStroke);
+        transition: background-size 300ms var(--bezierFastoutSlowin, ease);
+    }
+
+    .fancy-link:hover,
+    .fancy-link:focus-visible {
+        background:
+            linear-gradient(var(--filledLine), var(--filledLine)) no-repeat 0 100% / 100% var(--lineStroke),
+            linear-gradient(var(--unfilledLine), var(--unfilledLine)) no-repeat 0 100% / 100% var(--lineStroke);
+        }
+    .fancy-link--secondary {
+        --linkColor: #f5f5f5;
+    }
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -30,4 +62,8 @@ body {
     box-shadow: inset 350px 0 0 0 black;
     transform: scale(1.1);
     color: white;
+}
+
+#primary-link-text {
+    color: #CF9033;
 }
