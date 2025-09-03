@@ -4,9 +4,11 @@ import AboutSection from "./AboutSection.jsx"
 
 export default function HomeUI() {
     return(
-        <main className="w-screen font-primary text-white">
-            <AboutSection content={ aboutContent } />
-            <ProjectBlurb />   
-        </main>
+        <>
+            <main className="w-screen font-primary text-white">
+                <AboutSection content={ aboutContent } />
+                <ProjectBlurb /> 
+            </main>
+        </>
     )
 }

@@ -1,7 +1,14 @@
 export const myStackContent = {
     title: "Girl Needs Her Tools",
     description: "I could talk about tools all day (seriously, don’t test me). These are just a few of my go-tos that help me design, build, and occasionally break things — all in the name of getting the job done.",
-    backgroundImage:"../../src/assets/recipe-bg.jpg",
+    backgroundImage:"../../src/assets/toolkit-lowres.jpg",
+    roles:[
+        "Product Design",
+        "Front-End Development",
+        "AI Integration",
+        "Motion & Interaction Design",
+        "XR Design"
+    ],
     designStack: {
         title: "Design",
         stacks: [

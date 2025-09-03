@@ -40,7 +40,7 @@ export default function ProjectBlurb() {
 
 const Section = ({ children, className = "" }) => {
     return (
-        <section className={`max-w-[1024px] mx-auto h-screen p-10 ${className}`}>
+        <section className={`max-w-[1024px] mx-auto min-h-screen px-6 md:px-10 pt-[52vh] md:pt-24 ${className}`}>
             {children}
         </section>
     )

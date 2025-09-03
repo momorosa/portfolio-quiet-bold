@@ -43,6 +43,10 @@
     }
 }
 
+html, body, #root { 
+    height: 100%; 
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -51,6 +55,7 @@
 body {
   margin: 0;
   background-color: #202020;
+  overscroll-behavior-y: none;
 }
 
 #btn {
