@@ -5,6 +5,7 @@ import { useGLTF, useAnimations, PerspectiveCamera } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import modelUrl from '../assets/models/model.glb?url'
 import { getChapterProgress } from '../utils/getChapterProgress.js'
+import useReducedMotion from '../utils/useReducedMotion.js'
 
 const BRAND = new THREE.Color("#CF9033")
 const BASE = new THREE.Color("#202020")
@@ -16,6 +17,7 @@ export default function ToolkitModel({ scroll, ...props }) {
     const { nodes, materials, animations } = useGLTF(modelUrl)
     const { actions } = useAnimations(animations, group)
     const [hovered, setHovered] = useState(null)
+    const prefersReducedMotion = useReducedMotion()
 
     const extras = {
         receiveShadow: true,
@@ -36,14 +38,13 @@ export default function ToolkitModel({ scroll, ...props }) {
             return
         }
         const obj = group.current.getObjectByName(hovered)
-        if (obj && obj.material && obj.material.color) {
-            obj.material.color.set("white")
-        }
+        if (obj?.material?.color) obj.material.color.set("white")
         document.body.style.cursor = "pointer"
         return () => { document.body.style.cursor = "auto" }
     }, [hovered])
 
     useFrame((state) => {
+
         const p = scroll?.current ?? 0
         const action = actions?.["CameraAction.005"]
 
@@ -62,24 +63,29 @@ export default function ToolkitModel({ scroll, ...props }) {
             const isActive = name === activeMesh
             const isHovered = hovered === name
 
-            // idle motion 
-            m.position.y = Math.sin((et + i * 2000) / 2) * 1
-            m.rotation.x = Math.sin((et + i * 2000) / 3) / 10
-            m.rotation.y = Math.cos((et + i * 2000) / 2) / 10
-            m.rotation.z = Math.sin((et + i * 2000) / 3) / 10
+            // idle motion
+            if (!prefersReducedMotion) {
+                m.position.y = Math.sin((et + i * 2000) / 2) * 1
+                m.rotation.x = Math.sin((et + i * 2000) / 3) / 10
+                m.rotation.y = Math.cos((et + i * 2000) / 2) / 10
+                m.rotation.z = Math.sin((et + i * 2000) / 3) / 10  
+            }
 
             // emphasis by chapter
-            const targetScale = isActive ? 1.0 + 0.12 * t : 0.72
+            const targetScale = prefersReducedMotion
+            ? (isActive ? 1.0 : 0.9)
+            : (isActive ? 1.0 + 0.12 * t : 0.72)
+
             m.scale.x = THREE.MathUtils.lerp(m.scale.x, targetScale, 0.12)
             m.scale.y = THREE.MathUtils.lerp(m.scale.y, targetScale, 0.12)
             m.scale.z = THREE.MathUtils.lerp(m.scale.z, targetScale, 0.12)
 
-            const targetZ = isActive ? 0.6 * t : 0
+            const targetZ = prefersReducedMotion? 0 : (isActive ? 0.6 * t : 0)
             m.position.z = THREE.MathUtils.lerp(m.position.z, targetZ, 0.12)
 
             // hover color (white→brand→gray feel)
             const targetColor = isHovered ? BRAND : BASE
-            m.material?.color?.lerp(targetColor, isHovered ? 0.08 : 0.6)
+            m.material?.color?.lerp(targetColor, isHovered ? 0.08 : 0.06)
 
             if ("emissive" in m.material) {
                 m.material.emissive.lerp(
