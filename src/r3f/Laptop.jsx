@@ -6,7 +6,6 @@ export default function Laptop({ position = [0, 0, 0], rotation = [0, 0, 0], sca
 {
     const { nodes, materials } = useGLTF('../../src/assets/models/mac-draco.glb')
 
-    console.log('nodes', nodes)
     const group = useRef()
 
     const screen = useTexture(texture)

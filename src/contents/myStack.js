@@ -9,6 +9,23 @@ export const myStackContent = {
         "Motion & Interaction Design",
         "XR Design"
     ],
+    vrStack: {
+        title: "XR",
+        stacks: [
+            { 
+                tool: "Unity", 
+                description: "Where I build VR scenes, interactions, and prototypes." 
+            },
+            { 
+                tool: "Meta Quest 3", 
+                description: "My headset for testing immersive experiences." 
+            },
+            { 
+                tool: "C# (Basic)", 
+                description: "Enough scripting to make things interactive inside Unity." 
+            }
+        ]
+    },
     designStack: {
         title: "Design",
         stacks: [
@@ -84,21 +101,4 @@ export const myStackContent = {
             }
         ]
     },
-    vrStack: {
-        title: "XR",
-        stacks: [
-            { 
-                tool: "Unity", 
-                description: "Where I build VR scenes, interactions, and prototypes." 
-            },
-            { 
-                tool: "Meta Quest 3", 
-                description: "My headset for testing immersive experiences." 
-            },
-            { 
-                tool: "C# (Basic)", 
-                description: "Enough scripting to make things interactive inside Unity." 
-            }
-        ]
-    }
 }

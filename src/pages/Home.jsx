@@ -12,7 +12,6 @@ export default function Home() {
         <main className="fixed inset-0 h-[100svh] overscroll-y-none">
             <Canvas
                 shadows
-                // dpr={isMobile ? [1, 1.25] : [1, 2]}
                 dpr={[1, 2]}
                 gl={{ antialias: !isMobile, powerPreference: 'high-performance' }}
                 camera={{ fov: 35, position: [0, 0, 18] }}
