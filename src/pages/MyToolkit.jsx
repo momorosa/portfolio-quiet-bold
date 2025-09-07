@@ -4,6 +4,7 @@ import { Environment } from '@react-three/drei'
 import MyToolkitUI from '../components/MyToolkitUI.jsx'
 import ToolkitModel from '../r3f/ToolkitModel.jsx'
 import useBreakpoint from '../hooks/useBreakpoint.js'
+import { StarrySky } from '../r3f/StarrySky.jsx'
 
 
 export default function MyToolkit() {
@@ -33,6 +34,7 @@ export default function MyToolkit() {
                         className={ isMobile ? "touch-pan-y" : "touch-none" }
                     >
                         <ambientLight intensity={1} />
+                        <StarrySky />
                         <Suspense fallback={null}>
                             <ToolkitModel scroll={scroll} />
                             <Environment preset="city" />
