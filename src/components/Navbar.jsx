@@ -3,6 +3,7 @@ import Social from './Social.jsx'
 import Monogram from './Monogram.jsx'
 import IconButton from './IconButton.jsx'
 import DropdownMenu from './DropdownMenu.jsx'
+import { FancyLink } from './FancyLink.jsx'
 
 export default function Navbar() {
     const [ isOpen, setIsOpen ] = useState(false)
@@ -19,7 +20,22 @@ export default function Navbar() {
                     md:flex-col md:h-full md:p-6" 
                 >
                     <div className="flex justify-center items-center">
-                        <Monogram />
+                        <ul>
+                            <li className="pb-6">
+                                <Monogram />
+                            </li>
+                            <li className="-rotate-90 py-10 text-lg">
+                                <FancyLink href="/" secondary>
+                                    Projects
+                                </FancyLink>
+                            </li>
+                            <li className="-rotate-90 py-10 text-lg">
+                                <FancyLink href="/contact" secondary>
+                                    Contact
+                                </FancyLink>
+                            </li>
+                        </ul>
+                        
                     </div>
                     <IconButton 
                         label={ isOpen ? "Close menu" : "Open menu" }

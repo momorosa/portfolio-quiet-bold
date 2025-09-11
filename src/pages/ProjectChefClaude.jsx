@@ -1,6 +1,6 @@
 import { chefClaudeContent as content } from "../contents/chefClaudeContent.js";
 import ProjectHeading from "../components/ProjectHeading.jsx";
-import Footer from "../components/Footer.jsx";
+import FooterText from "../components/FooterText.jsx";
 
 export default function ProjectChefClaude() {
   return (
@@ -161,7 +161,7 @@ export default function ProjectChefClaude() {
           </div>
         </div>
       </section>
-      <Footer />
+      <FooterText />
     </main>
   );
 }

@@ -62,6 +62,7 @@ export default function Experience() {
                         </Float>
                     </PresentationControls>
                 </group>
+               
             </Suspense>
         </>
     )

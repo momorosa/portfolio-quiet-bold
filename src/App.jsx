@@ -3,6 +3,7 @@ import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import ProjectChefClaude from './pages/ProjectChefClaude.jsx'
 import MyToolkit from './pages/MyToolkit.jsx'
+import Contact from './pages/Contact.jsx'
 
 export default function App () {
     return(
@@ -13,6 +14,7 @@ export default function App () {
                 <Route path="/home" element={ <Navigate to="/" replace  /> }/>
                 <Route path="/chef-claude" element={ <ProjectChefClaude /> }/>
                 <Route path="/my-toolkit" element={ <MyToolkit /> }/>
+                <Route path="/contact" element={ <Contact /> }/>
             </Routes>
 
         </BrowserRouter>               
