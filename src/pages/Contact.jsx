@@ -23,7 +23,7 @@ export default function Contact() {
                         far: 2000,
                         position: [ 0, 0, 10 ]
                     }}
-                    className="absolute inset-0"
+                    className="absolute inset-0 touch-pan-y"
                     gl={{ antialias: true, stencil: true, powerPreference: "high-performance" }}
                     dpr={[ 1, 2 ]}
                     eventSource={ eventSource ?? undefined }

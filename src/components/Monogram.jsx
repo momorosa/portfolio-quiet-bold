@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation, useNavigate } from "react-router-dom"
 import { motion } from "framer-motion"
+import React from "react"
 
 const MONO = "M22.5352 14.5225H6.50977V16.0254H22.5352V22.5352H0V8.0127H16.0244V6.50977H0V0H22.5352V14.5225Z"
 
@@ -14,8 +15,37 @@ const fillVariants = {
 }
 
 export default function Monogram() {
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const handleClick = React.useCallback((e) => {
+        if(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button === 1) return
+        
+        e.preventDefault()
+
+        const goTop = () => {
+            window.dispatchEvent(new CustomEvent('r3f-go', { detail: { page: 0, smooth: true } }))  
+        }
+        if(location.pathname === '/') {
+            if (location.hash) navigate('/', { replace: true })
+            requestAnimationFrame(() => requestAnimationFrame(goTop))
+        }else {
+            navigate('/')
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    goTop()
+                })
+            })
+        }
+    }, [location.pathname, location.hash, navigate ])
+
     return (
-        <Link to="/" aria-label="Home" className="flex justify-center items-center shrink-0">
+        <Link 
+            to="/" 
+            aria-label="Home" 
+            onClick={ handleClick  }
+            className="flex justify-center items-center shrink-0"
+        >
             <motion.svg
                 className="w-[32px] h-auto"
                 viewBox="0 0 23 32"

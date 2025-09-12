@@ -3,11 +3,23 @@ import { ScrollControls, Scroll } from "@react-three/drei"
 import Experience from "../components/Experience.jsx"
 import HomeUI from "../components/HomeUI.jsx"
 import useBreakpoint from "../hooks/useBreakpoint.js"
-
+import { useLocation } from "react-router-dom"
+import { useEffect } from "react"
+import ScrollBridge from "../components/ScrollBridge.jsx"
 
 
 export default function Home() {
     const { isMobile } =useBreakpoint()
+    const location = useLocation()
+
+    // Support deep link "/#projects" - page 1
+    useEffect(() => {
+        if(location.hash === '#projects'){
+            setTimeout(() => {
+                window.dispatchEvent(new CustomEvent('r3f-go', { detail: { page: 1, smooth: true } }))
+            }, 0)
+        }
+    }, [ location.hash ])
 
     return (
         <div className="flex flex-col">
@@ -31,6 +43,7 @@ export default function Home() {
                         <Scroll html className="will-change-transform">
                             <HomeUI />
                         </Scroll>
+                        <ScrollBridge />
                     </ScrollControls>
                 </Canvas>
             </section>

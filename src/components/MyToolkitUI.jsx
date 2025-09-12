@@ -71,7 +71,7 @@ const MyToolkitUI = forwardRef(function MyToolkitUI({ scroll, caption }, ref) {
                 title={content.title}
                 description={content.description}
                 roles={content.roles}
-                className="text-white font-primary"
+                className="text-white font-primary mask-alpha mask-b-from-black mask-b-from-50% mask-b-to-transparent"
             />
 
             <div className="block md:hidden h-10 sm:h-14"/>
@@ -104,7 +104,6 @@ const MyToolkitUI = forwardRef(function MyToolkitUI({ scroll, caption }, ref) {
                 progress={progress}
                 range={RANGES[3]}
             />
-            
             {/* Debug like original caption */}
             {/* <span ref={caption} className="fixed top-0 right-0 m-20 text-white font-light text-6xl">
                 {START_AT.toFixed(2)}
