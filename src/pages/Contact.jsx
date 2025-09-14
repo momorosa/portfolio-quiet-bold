@@ -53,7 +53,7 @@ export default function Contact() {
                             </Button>  
                         </div>  
                         <p className="font-light italic text-yellow-mellow-light mt-10">
-                            * doublc click to enter portal
+                            * doublc click to enter & exit portal
                         </p>                  
                     </div>
                     <div className="mt-auto pointer-events-auto">

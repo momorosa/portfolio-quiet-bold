@@ -1,7 +1,6 @@
 export const aboutContent = {
     headline: "Quiet Bold.",
     intro: "I’m Rosa Choi, a product designer and creative technologist based in San Francisco. I believe every touchpoint tells a story — what we value, what we challenge, and what we imagine next.",
-    // currentRole: "At Ford, I shape the ownership experience strategy for millions of drivers worldwide — defining the future vision for personalized, proactive care and designing AI-powered programs like 24/7 Live Support and Proactive Roadside, which drove a 609% MoM enrollment surge and +18 NPS.",
     currentRole: "At Ford, I shape the ownership experience strategy for millions of drivers worldwide — defining the future vision for personalized, proactive care and designing AI-powered programs.",
     background: "Previously, I modernized First Republic Bank’s legacy CRM into an ML-powered, 360° banking platform that recovered $5B in deposits and scaled a design system across six product teams; and I co-founded HouseQuest, a privacy-first real estate marketplace connecting homeowners and agents.",
     passion: "I love designing and building AI products that delight consumers, deliver personalized recommendations, and unify enterprise systems — blending product strategy, UX/UI craft, and code to bring ideas to high-fidelity, production-ready life.",

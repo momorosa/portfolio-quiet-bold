@@ -4,6 +4,9 @@ import Home from './pages/Home.jsx'
 import ProjectChefClaude from './pages/ProjectChefClaude.jsx'
 import MyToolkit from './pages/MyToolkit.jsx'
 import Contact from './pages/Contact.jsx'
+import FordWork from './pages/FordWork.jsx'
+import FrbWork from './pages/FrbWork.jsx'
+import HousequestWork from './pages/HousequestWork.jsx'
 
 export default function App () {
     return(
@@ -13,6 +16,10 @@ export default function App () {
                 <Route path="/" element={ <Home /> }/>
                 <Route path="/home" element={ <Navigate to="/" replace  /> }/>
                 <Route path="/chef-claude" element={ <ProjectChefClaude /> }/>
+                <Route path="/work/ford" element={<FordWork />} />
+                <Route path="/work/frb" element={<FrbWork />} />
+                <Route path="/work/housequest" element={<HousequestWork />} />
+                <Route path="/work" element={<Navigate to="/work/ford" replace />} />
                 <Route path="/my-toolkit" element={ <MyToolkit /> }/>
                 <Route path="/contact" element={ <Contact /> }/>
             </Routes>
@@ -20,3 +27,4 @@ export default function App () {
         </BrowserRouter>               
     )
 }
+

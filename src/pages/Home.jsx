@@ -1,12 +1,39 @@
 import { Canvas } from "@react-three/fiber"
-import { ScrollControls, Scroll } from "@react-three/drei"
+import { ScrollControls, Scroll, useContextBridge } from "@react-three/drei"
 import Experience from "../components/Experience.jsx"
 import HomeUI from "../components/HomeUI.jsx"
 import useBreakpoint from "../hooks/useBreakpoint.js"
-import { useLocation } from "react-router-dom"
+import { useLocation, UNSAFE_LocationContext, UNSAFE_NavigationContext, UNSAFE_RouteContext, UNSAFE_DataRouterContext } from "react-router-dom"
 import { useEffect } from "react"
 import ScrollBridge from "../components/ScrollBridge.jsx"
 
+// Bridge Router context into the Canvas subtree
+
+function RoutedScroll({ isMobile }) {
+    const ContextBridge = useContextBridge(
+        UNSAFE_LocationContext,
+        UNSAFE_NavigationContext,
+        UNSAFE_RouteContext,
+        UNSAFE_DataRouterContext
+    )
+    return (
+        <ContextBridge>
+            <ScrollControls 
+                pages={ 4 } 
+                damping={isMobile ? 0.28 : 0.2}
+                style={{ overscrollBehavior: 'none', WebkitOverflowScrolling: 'touch' }}
+            >
+                <Scroll>
+                    <Experience />
+                </Scroll>
+                <Scroll html className="will-change-transform">
+                    <HomeUI />
+                </Scroll>
+                <ScrollBridge />
+            </ScrollControls>
+        </ContextBridge>
+    )
+}
 
 export default function Home() {
     const { isMobile } =useBreakpoint()
@@ -32,19 +59,7 @@ export default function Home() {
                     camera={{ fov: 35, position: [0, 0, 18] }}
                     className={ isMobile ? "touch-pan-y" : "touch-none" }
                 >
-                    <ScrollControls 
-                        pages={ 4 } 
-                        damping={isMobile ? 0.28 : 0.2}
-                        style={{ overscrollBehavior: 'none', WebkitOverflowScrolling: 'touch' }}
-                    >
-                        <Scroll>
-                            <Experience />
-                        </Scroll>
-                        <Scroll html className="will-change-transform">
-                            <HomeUI />
-                        </Scroll>
-                        <ScrollBridge />
-                    </ScrollControls>
+                    <RoutedScroll isMobile={ isMobile } />
                 </Canvas>
             </section>
         </div>

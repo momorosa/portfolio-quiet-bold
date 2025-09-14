@@ -1,36 +1,55 @@
 import { forwardRef } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useInRouterContext } from 'react-router-dom'
 import clsx from 'clsx'
 
-const ASSET_EXT = ['txt', 'png', 'jpg', 'pdf']
+const ASSET_EXT = ['txt', 'png', 'jpg', 'jpeg', 'webp', 'svg', 'gif', 'pdf']
 
-const isRawHref = (href = '') =>
-  href.startsWith('http') ||
-  href.startsWith('#') ||
-  ASSET_EXT.includes(href.split('.').pop())
-
+const getExt =(href = '') => {
+    try {
+        const withoutQueryHasbh = href.split('?')[0].split('#')[0]
+        const ex = withoutQueryHasbh.split('.').pop()
+        return (ex || '').toLowerCase() 
+    } catch {
+        return ''
+    }
+}
 
 /**
  * props:
  * - href   → "/work/ford"  | "https://..." | "#section"
  * - secondary (boolean)    → darker text color
  * - className              → extra Tailwind / CSS classes
+ * * - ...rest     → any <a> / <RouterLink> props (title, aria-label, etc.)
  */
 
-export const FancyLink = forwardRef(
-    ({ href, secondary = false, className, children, ...rest }, ref) => {
-        const isExternal = href.startsWith('http')
-        const relValue = isExternal ? 'noreferrer noopener' : undefined
-        const target = isExternal ? '_blank' : undefined
+const PROTOCOL_RE = /^[a-zA-Z][a-zA-Z+.-]*:/
 
+const isRawHref = (href = '') => 
+    PROTOCOL_RE.test(href) || // has protocol (http:, mailto:, tel:, etc.)
+    href.startsWith('#') ||   // in-page anchor
+    ASSET_EXT.includes(getExt(href)) // asset link (pdf, image, txt, etc.)  
+
+export const FancyLink = forwardRef( function FancyLink (
+    { href = '', secondary = false, className, children, ...rest }, ref
+){
+        const inRouter = useInRouterContext()
+        const isExternalHttp = /^https?:\/\//i.test(href)
+        const relValue = isExternalHttp ? 'noreferrer noopener' : undefined
+        const target = isExternalHttp ? '_blank' : undefined
         const classes = clsx(
             'fancy-link',
             secondary && 'fancy-link--secondary',
             className
         )
+        if (!href) {
+            console.warn('FancyLink: missing href')
+            return <span className={classes}>{ children }</span>
+        }
+
+
 
         // raw anchor for external, in-page, or assets
-        if (isRawHref(href)) {
+        if (isRawHref(href) || !inRouter) {
             return(
                 <a
                     href={ href }
