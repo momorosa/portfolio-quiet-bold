@@ -47,7 +47,7 @@ export default function FordWork() {
         >
             <div className="mx-auto h-full max-w-[1120px] grid grid-cols-1 md:grid-cols-[minmax(0,640px)_1fr]">
                 {/* LEFT: content column */}
-                <div className="pointer-events-auto md:overflow-y-auto md:overscroll-contain">
+                <div className="pointer-events-auto md:overflow-y-auto md:overscroll-contain hide-scrollbar">
                     <div className="px-6 md:px-10 py-12 md:py-16 text-white font-primary min-h-screen">
                         <h1 className="text-3xl md:text-4xl font-semibold md:leading-[1.2] text-yellow-mellow md:pt-24">
                             {fordContent.headline}

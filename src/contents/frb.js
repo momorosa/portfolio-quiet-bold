@@ -15,7 +15,7 @@ export const frbContent = {
             projectName: "Enterprise Design System",
             keyOutcomes: "–30% UI Defects | –20% Dev Cycle Time",
             description: "Built and evangelized a responsive, WCAG-compliant design system adopted by 6 product teams within three quarters.",
-            actionButton: { label: "View project", href: "/work/frb/design-system" }
+            actionButton: { label: "View project", href: "/design-system" }
         },
         {
             projectName: "CRM Modernization",
