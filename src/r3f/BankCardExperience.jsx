@@ -35,7 +35,7 @@ export default function BankCardExperience() {
         <>
             <Environment preset="sunset" />
             { !isMobile && <Cursor />}
-            <StarrySky nbParticles={800} />
+            <StarrySky nbParticles={ isMobile ? 600 : 800 } />
             <Float
                 floatIntensity={3}
                 rotationIntensity={1}
