@@ -14,7 +14,7 @@ import gravityUrl from "../assets/sfxs/gravity.mp3?url"
 import fireUrl from "../assets/sfxs/fire.mp3?url"
 import freezeUrl from "../assets/sfxs/freeze.mp3?url"
 import ambientUrl from "../assets/sfxs/eerie.mp3?url"
-import icicleUrl from "../assets/models/icicle.glb?url"
+import icicleUrl from "../assets/models/Icicle.glb?url"
 import { useMagic } from "../hooks/useMagic.js"
 import Orc from "../components/Orc.jsx"
 
