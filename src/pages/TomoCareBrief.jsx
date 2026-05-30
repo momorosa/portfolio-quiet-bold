@@ -9,7 +9,7 @@ import {
   CaseStudyCard,
   CaseStudyCallout,
 } from "../components/CaseStudy.jsx"
-import PhaseDiagram from "../components/PhaseDiagram.jsx"
+import PhaseDiagram from "../components/Phasediagram.jsx"
 import WorkingBrainDiagram from "../components/WorkingBrainDiagram.jsx"
 import VerificationUIDiagram from "../components/VerificationUIDiagram.jsx"
 import Footer from "../components/Footer.jsx"
