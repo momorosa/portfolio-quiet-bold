@@ -1,74 +1,61 @@
-import { forwardRef } from 'react'
-import { Link as RouterLink, useInRouterContext } from 'react-router-dom'
-import clsx from 'clsx'
+import { forwardRef } from "react"
+import { Link as RouterLink, useInRouterContext } from "react-router-dom"
+import clsx from "clsx"
 
-const ASSET_EXT = ['txt', 'png', 'jpg', 'jpeg', 'webp', 'svg', 'gif', 'pdf']
+const ASSET_EXT = ["txt", "png", "jpg", "jpeg", "webp", "svg", "gif", "pdf"]
+const PROTOCOL_RE = /^[a-zA-Z][a-zA-Z+.-]*:/
 
-const getExt =(href = '') => {
+const getExt = (href = "") => {
     try {
-        const withoutQueryHasbh = href.split('?')[0].split('#')[0]
-        const ex = withoutQueryHasbh.split('.').pop()
-        return (ex || '').toLowerCase() 
+        const withoutQueryHash = href.split("?")[0].split("#")[0]
+        const ex = withoutQueryHash.split(".").pop()
+        return (ex || "").toLowerCase()
     } catch {
-        return ''
+        return ""
     }
 }
 
-/**
- * props:
- * - href   → "/work/ford"  | "https://..." | "#section"
- * - secondary (boolean)    → darker text color
- * - className              → extra Tailwind / CSS classes
- * * - ...rest     → any <a> / <RouterLink> props (title, aria-label, etc.)
- */
+const isRawHref = (href = "") =>
+    PROTOCOL_RE.test(href) ||
+    href.startsWith("#") ||
+    ASSET_EXT.includes(getExt(href))
 
-const PROTOCOL_RE = /^[a-zA-Z][a-zA-Z+.-]*:/
+export const FancyLink = forwardRef(function FancyLink(
+    { href = "", secondary = false, newTab, className, children, ...rest },
+    ref
+) {
+    const inRouter = useInRouterContext()
+    const isExternalHttp = /^https?:\/\//i.test(href)
 
-const isRawHref = (href = '') => 
-    PROTOCOL_RE.test(href) || // has protocol (http:, mailto:, tel:, etc.)
-    href.startsWith('#') ||   // in-page anchor
-    ASSET_EXT.includes(getExt(href)) // asset link (pdf, image, txt, etc.)  
+    const classes = clsx("fancy-link", secondary && "fancy-link--secondary", className)
 
-export const FancyLink = forwardRef( function FancyLink (
-    { href = '', secondary = false, className, children, ...rest }, ref
-){
-        const inRouter = useInRouterContext()
-        const isExternalHttp = /^https?:\/\//i.test(href)
-        const relValue = isExternalHttp ? 'noreferrer noopener' : undefined
-        const target = isExternalHttp ? '_blank' : undefined
-        const classes = clsx(
-            'fancy-link',
-            secondary && 'fancy-link--secondary',
-            className
-        )
-        if (!href) {
-            console.warn('FancyLink: missing href')
-            return <span className={classes}>{ children }</span>
-        }
+    if (!href) {
+        console.warn("FancyLink: missing href")
+        return <span className={classes}>{children}</span>
+    }
 
+    const shouldNewTab = typeof newTab === "boolean" ? newTab : isExternalHttp
+    const relValue = shouldNewTab ? "noreferrer noopener" : undefined
+    const target = shouldNewTab ? "_blank" : undefined
 
-
-        // raw anchor for external, in-page, or assets
-        if (isRawHref(href) || !inRouter) {
-            return(
-                <a
-                    href={ href }
-                    ref={ ref }
-                    rel={ relValue }
-                    target={ target }
-                    className={ classes }
-                    {...rest}
-                >
-                    { children }
-                </a>
-            )
-        }
-
-        // internal React-Router link
-        return(
-            <RouterLink ref={ ref } to={ href } className={ classes } {...rest}>
-                { children }
-            </RouterLink>
+    if (isRawHref(href) || !inRouter) {
+        return (
+            <a
+                href={href}
+                ref={ref}
+                rel={relValue}
+                target={target}
+                className={classes}
+                {...rest}
+            >
+                {children}
+            </a>
         )
     }
-)
+
+    return (
+     <RouterLink ref={ref} to={href} className={classes} {...rest}>
+        {children}
+        </RouterLink>
+    )
+})

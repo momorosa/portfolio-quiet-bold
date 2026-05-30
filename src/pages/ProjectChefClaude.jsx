@@ -1,167 +1,188 @@
-import { chefClaudeContent as content } from "../contents/chefClaudeContent.js";
-import ProjectHeading from "../components/ProjectHeading.jsx";
-import FooterText from "../components/FooterText.jsx";
+import { chefClaudeContent as content } from "../contents/chefClaudeContent.js"
+import ProjectHeading from "../components/ProjectHeading.jsx"
+import RelatedLabProjects from "../components/RelatedLabProjects.jsx"
+import Footer from "../components/Footer.jsx"
+import {
+    CaseStudySection,
+    CaseStudyBody,
+    CaseStudyEyebrow,
+    CaseStudyList,
+    CaseStudyCard,
+    CaseStudyGrid,
+    CaseStudyMetaList,
+} from "../components/CaseStudy.jsx"
 
 export default function ProjectChefClaude() {
-  return (
-    <main className="text-white font-primary overflow-x-hidden bg-black">
-      <ProjectHeading
-        backgroundImage={content.backgroundImage}
-        title={content.title}
-        description={content.description}
-        button={{
-          id: "btn",
-          href: content.buttonUrl,
-          label: content.buttonLabel,
-          rightIcon: "restaurant",
-        }}
-        ctaCamption={content.ctaCaption}
-        roles={content.roles}
-        heroImage={{
-          src: content.heroImage,
-          alt: "Chef Claude app screenshot",
-        }}
-      />
+    return (
+        <main className="relative text-white font-primary overflow-x-hidden bg-black">
+            <ProjectHeading
+                backgroundImage={content.backgroundImage}
+                title={content.title}
+                description={content.description}
+                button={{
+                    id: "btn",
+                    href: content.buttonUrl,
+                    label: content.buttonLabel,
+                    rightIcon: "restaurant",
+                    className: "text-white"
+                }}
+                ctaCamption={content.ctaCaption}
+                roles={content.roles}
+                heroImage={{
+                    src: content.heroImage,
+                    alt: "Chef Claude app screenshot",
+                }}
+            />
 
-      {/* Overview Section */}
-      <section className="mt-60 pt-40 md:pt-120 h-screen bg-black">
-        <div className="max-w-[1120px] mx-auto px-6 py-16">
-          <div className="w-8 h-[8px] bg-yellow-mellow mb-4"></div>
-          <h2 className="text-4xl font-semibold mb-6">
-            {content.context.sectiontTitle}
-          </h2>
-          <p className="text-xl text-zinc-200 leading-[1.75]">
-            {content.context.challenge}
-          </p>
-        </div>
-      </section>
+            {/* Overview */}
+            <CaseStudySection title="Overview" className="md:pt-180 pt-90">
+                <CaseStudyBody>{content.overview}</CaseStudyBody>
+            </CaseStudySection>
+          
+            {/* Challenge */}
+            <CaseStudySection title={content.context.sectionTitle}>
+                <CaseStudyBody>{content.context.challenge}</CaseStudyBody>
+            </CaseStudySection>
+          
+            {/* How it works */}
+            <CaseStudySection
+                title={content.uxFlow.sectionTitle}
+                narrow={false}
+                className="bg-warm-gray-dark/50"
+            >
 
-      {/* UX Flow Section */}
-      <section className="flex bg-warm-gray-dark min-h-svh">
-        <div className="max-w-[1120px] mx-auto my-auto px-6 md:px-10 flex flex-col">
-          <div className="w-8 h-[8px] bg-yellow-mellow mb-4"></div>
-          <h2 className="text-4xl font-semibold mb-8">
-            {content.uxFlow.sectionTitle}
-          </h2>
-          <div className="flex flex-row justify-between gap-10">
-            <div className="flex flex-col w-1/3">
-              {content.uxFlow.steps.map((step, index) => (
-                <div key={index} className="bg-black rounded mb-4 p-6">
-                  <span className="material-icons text-yellow-mellow-light">
-                    {step.icon}
-                  </span>
-                  <h3 className="text-2xl mb-4 flex items-center">
-                    {step.stepTitle}
-                  </h3>
-                  <p className="text-zinc-400">{step.step}</p>
-                </div>
-              ))}
-            </div>
-            <div className="w-2/3">//An image or vid</div>
-          </div>
-        </div>
-      </section>
-
-      {/* Design Highlights Section */}
-      <section className="pt-20 bg-warm-gray">
-        <div className="max-w-[1120px] mx-auto px-6 md:px-10 flex flex-col">
-          <div className="w-8 h-[8px] bg-yellow-mellow mb-4"></div>
-          <h2 className="text-4xl font-semibold mb-6">
-            {content.designChallenges.sectionTitle}
-          </h2>
-          <div className="mb-10">
-            <div className="flex flex-col w-1/2 gap-10">
-              {/* <div className="flex flex-row justify-between"> */}
-              {content.designChallenges.challenges.map((challenge, index) => (
-                <div key={index} className="">
-                  <h3 className="text-2xl font-semibold mb-6 text-yellow-mellow-light">
-                    {challenge.subTitle}
-                  </h3>
-                  {challenge.decisions.map((decision, idx) => (
-                    <div key={idx} className="mb-4">
-                      <h4 className="text-xl font-medium pb-4">
-                        {decision.name}
-                      </h4>
-                      <p className="text-zinc-400 leading-[1.75]">
-                        {decision.content}
-                      </p>
+                <div className="space-y-10">
+                    {/* Video — full width */}
+                    <div className="space-y-4">
+                        <CaseStudyCard className="overflow-hidden p-0">
+                            <div className="aspect-video w-full">
+                                <iframe
+                                    src="https://player.vimeo.com/video/1192117579?badge=0& autopause=0"
+                                    className="w-full h-full"
+                                    frameBorder="0"
+                                    allow="autoplay; fullscreen; picture-in-picture;    clipboard-write; encrypted-media; web-share"
+                                    referrerPolicy="strict-origin-when-cross-origin"
+                                    title="Chef Claude_ walkthrough"
+                                />
+                            </div>
+                        </CaseStudyCard>
+                        <p className="text-sm text-zinc-400 leading-6 italic">
+                            A small note on the video: I recorded the voice over when the app was still running on DALL·E 3. OpenAI deprecated that model on May 12, 2026, so the live demo now uses gpt-image-2 and stores images on Vercel Blob. The experience looks and works the same. If anything, that swap is part of the project&rsquo;s point. Small AI products need tending, and the architecture should bend without breaking when a vendor changes the contract.
+                        </p>
                     </div>
+
+                    {/* Step cards — three across */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {content.uxFlow.steps.map((step, index) => (
+                            <CaseStudyCard key={index} className="h-full">
+                                <span className="material-icons material-symbols-outlined text-yellow-mellow-light mb-3">
+                                    {step.icon}
+                                </span>
+                                <h3 className="text-xl md:text-2xl font-medium text-white mb-3">
+                                    {step.stepTitle}
+                                </h3>
+                                <p className="text-zinc-300 leading-7">
+                                    {step.step}
+                                </p>
+                            </CaseStudyCard>
+                        ))}
+                    </div>
+                </div>
+            </CaseStudySection>
+              
+            {/* Design highlights */}
+            <CaseStudySection
+                title={content.designChallenges.sectionTitle}
+                className="bg-warm-gray-dark/50"
+            >
+                <div className="space-y-12">
+                    {content.designChallenges.challenges.map((challenge, index) => (
+                        <div
+                            key={index}
+                            className="border-t border-white/10 pt-8 first:border-t-0 first:pt-0"
+                        >
+                            <h3 className="text-xl md:text-2xl font-semibold mb-6 text-yellow-mellow-light">
+                                {challenge.subTitle}
+                            </h3>
+
+                            <div className="space-y-6">
+                                {challenge.decisions.map((decision, idx) => (
+                                    <div key={idx}>
+                                        <h4 className="text-lg md:text-xl font-medium text-white mb-3">
+                                            {decision.name}
+                                        </h4>
+                                        <CaseStudyBody>{decision.content}</CaseStudyBody>
+                                    </div>
+                                ))}
+                            </div>
+                      
+                        {challenge.gif ? (
+                            <div className="mt-8">
+                                <CaseStudyCard className="overflow-hidden p-0">
+                                    <img
+                                        src={challenge.gif}
+                                        alt={challenge.subTitle}
+                                        className="w-full h-auto object-cover"
+                                    />
+                                </CaseStudyCard>
+                            </div>
+                        ) : null}
+                        </div>
                   ))}
                 </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stack Section */}
-      <section className="py-20 bg-warm-gray-dark">
-        <div className="max-w-[1120px] mx-auto px-6 md:px-10  flex flex-col">
-          <div className="w-8 h-[8px] bg-yellow-mellow mb-4"></div>
-          <h2 className="text-4xl font-semibold mb-8">
-            {content.stack.sectionTitle}
-          </h2>
-          <div className="flex justify-between gap-6">
-            {content.stack.stack.map((item, index) => (
-              <div
-                key={index}
-                className="w-1/2 p-4 md:pt-6 rounded-xl bg-gradient-to-br from-gray-500/10 to-amber-300/10 font-light backdrop-blur-md border border-white/20 text-white gap-4 flex flex-col mb-6"
-              >
-                <span className="material-icons text-yellow-mellow-light mb-2">
-                  {item.icon || "code"}
-                </span>
-                <h3 className="text-3xl md:text-3xl">{item.name}</h3>
-                <p className="text-zinc-300">{item.techStack}</p>
+            </CaseStudySection>
+            
+            {/* Tech stack */}
+            <CaseStudySection
+                title={content.stack.sectionTitle}
+                className="bg-warm-gray-dark/50"
+            >
+                <CaseStudyMetaList
+                    items={content.stack.stack.map((item) => ({
+                        title: item.name,
+                        content: item.techStack,
+                    }))}
+                />
+            </CaseStudySection>
+            
+            {/* Outcome */}
+            <CaseStudySection
+                title={content.outcome.sectionTitle}
+                narrow={false}
+                className="bg-warm-gray-dark/50"
+            >
+                <CaseStudyGrid>
+                    {content.outcome.outcomes.map((item, index) => (
+                        <CaseStudyCard
+                            key={index}
+                            className="h-full"
+                        >
+                            <p className="text-yellow-mellow-light material-icons material-symbols-outlined mb-3">
+                                {item.icon}
+                            </p>
+                            <h3 className="text-2xl md:text-[1.75rem] font-medium text-white mb-3">
+                                {item.title}
+                            </h3>
+                            <p className="text-zinc-300 leading-7">
+                                {item.description}
+                            </p>
+                        </CaseStudyCard>
+                    ))}
+                </CaseStudyGrid>
+            </CaseStudySection>
+            
+            {/* Why it matters */}
+            <CaseStudySection
+                title={content.closing.sectionTitle}
+                className="bg-warm-gray-dark/50"
+            >
                 <div>
-                  <img
-                    src={item.svg}
-                    alt="logos of the technologies used"
-                    className="w-full h-[32px] mt-4"
-                  />
+                    <CaseStudyEyebrow>Reflection</CaseStudyEyebrow>
+                    <CaseStudyList items={content.closing.lessons} />
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Outcome Section */}
-      <section className="flex bg-warm-gray min-h-svh">
-        <div className="max-w-[1120px] mx-auto my-auto px-6 md:px-10 ">
-          <div className="w-8 h-[8px] bg-yellow-mellow mb-4"></div>
-          <h2 className="text-4xl font-semibold mb-8">
-            {content.outcome.sectionTitle}
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:pr-40">
-            {content.outcome.outcomes.map((item, index) => (
-              <div
-                key={index}
-                className="p-4 md:pt-10 rounded-xl bg-gradient-to-br from-gray-500/10 to-amber-300/10 font-light backdrop-blur-md border border-white/20 text-white"
-              >
-                <p className="text-gray-300 material-icons">{item.icon}</p>
-                <h3 className="text-2xl md:text-3xl py-4">{item.title}</h3>
-                <p className="">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Closing Section */}
-      <section className="pt-20 bg-warm-gray-dark pb-20">
-        <div className="max-w-[1120px] mx-auto px-6 md:px-10  flex flex-col">
-          <div className="w-8 h-[8px] bg-yellow-mellow mb-4"></div>
-          <h2 className="text-4xl font-semibold mb-8">
-            {content.closing.sectionTitle}
-          </h2>
-          <div className="flex flex-col">
-            <p className="text-lg leading-[1.75] text-gray-300">
-              {content.closing.lessons}
-            </p>
-          </div>
-        </div>
-      </section>
-      <FooterText />
-    </main>
-  );
+            </CaseStudySection>
+            <RelatedLabProjects currentProjectUrl="/lab/chef-claude" />
+            <Footer className="text-[var(--text-soft)]" />
+        </main>
+    )
 }

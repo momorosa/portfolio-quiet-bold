@@ -1,4 +1,3 @@
-import { object } from 'framer-motion/client'
 import { useEffect, useMemo, useState } from 'react'
 
 const QUERIES = {

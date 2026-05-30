@@ -23,7 +23,7 @@ export default function TextButton({
     }
 
     const renderMaterialIcon = (iconName) => (
-      <span className={`material-icons ${iconSize}`}>{iconName}</ span>
+      <span className={`material-icons material-symbols-outlined ${iconSize}`}>{iconName}</ span>
     )
 
     return (

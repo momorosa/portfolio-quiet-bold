@@ -44,7 +44,7 @@ export default forwardRef (function IconButton(
             { icon ? (
                 <span className="leading-none">{ icon }</span>
             ) : (
-                <span className="material-icons leading-none">{ iconName }</span>
+                <span className="material-icons material-symbols-outlined leading-none">{ iconName }</span>
             )}
         </motion.button>
     )
