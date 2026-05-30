@@ -12,8 +12,8 @@ export const chefClaudeContent = {
     buttonLabel: "Try Chef Claude_",
     buttonUrl: "https://claudeinary.vercel.app/",
     ctaCaption:"Live demo. Claude Haiku 4.5 + DALL·E 3. Real recipes, not a mockup.",
-    backgroundImage:"../../src/assets/recipe-bg.jpg",
-    heroImage:"../../src/assets/overview-img.jpg",
+    backgroundImage:"/assets/recipe-bg.jpg",
+    heroImage:"/assets/overview-img.jpg",
     context: {
         sectionTitle: "The Challenge",
         challenge: "Most people waste ingredients because they don’t know what to cook with what they already have. I wanted a small, honest product to answer that, and a chance to sit with the real questions of shipping an AI app. How do you keep the model’s output reliable enough to render? What happens when the API misbehaves? What does a hosted AI product actually cost you to maintain over time?",
@@ -25,25 +25,25 @@ export const chefClaudeContent = {
                 icon: "devices",
                 name: "UI",
                 techStack: "React, Tailwind CSS, React Three Fiber + Drei (3D scene), Framer Motion (animations)",
-                svg:"../../src/assets/uiLogos.svg",
+                svg:"/assets/uiLogos.svg",
             },
             {
                 icon: "memory",
                 name: "AI Layer",
                 techStack: "Anthropic Claude Haiku 4.5 (recipe generation, structured JSON) + OpenAI DALL·E 3 (hero images)",
-                svg:"../../src/assets/aiLogos.svg",
+                svg:"/assets/aiLogos.svg",
             },
             {
                 icon: "web",
                 name: "Data Handling",
                 techStack: "localStorage (favorites persistence, no backend, no auth)",
-                svg:"../../src/assets/browser-logos.svg",
+                svg:"/assets/browser-logos.svg",
             },
             {
                 icon: "rocket_launch",
                 name: "Deployment",
                 techStack: "Vercel (Git-based CI/CD, serverless API routes)",
-                svg:"../../src/assets/deployment.svg",
+                svg:"/assets/deployment.svg",
             },           
         ],
     },
@@ -70,7 +70,7 @@ export const chefClaudeContent = {
                         "content": "DALL·E URLs expire after about a day, which would otherwise make saved favorites look broken. The favorite cards fall back to a placeholder image on load failure, and the UI honestly tells the user images are cached for ~24h. Better to communicate the constraint than pretend it isn’t there."
                    },
                 ],
-                gif: "../../src/assets/systemPrompt.png",
+                gif: "/assets/systemPrompt.png",
             },
             {
                 subTitle: "Building Delight",
@@ -114,7 +114,7 @@ export const chefClaudeContent = {
                         "content": "The Claude and DALL·E calls live in Vercel serverless functions, not the client, so API keys stay server-side. The endpoints return clean HTTP status codes (400 for bad input, 502 if the upstream model returns nothing usable, the original status code passed through when OpenAI errors) so the front end can fail visibly instead of silently."
                     },
                 ],
-                gif:"../../src/assets/local-storage.jpg",
+                gif:"/assets/local-storage.jpg",
             }       
         ]
     },

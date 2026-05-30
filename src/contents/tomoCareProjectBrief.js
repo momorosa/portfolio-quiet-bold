@@ -1,8 +1,8 @@
 export const tomoCareBriefContent = {
     title: "TomoCare: System Design for a Governed AI Sidekick",
     description: "How TomoCare turns scattered documents into trusted, actionable records without cutting the human out of the loop.",
-    backgroundImage: "../../src/assets/tomocare-img.jpg",
-    heroImage: "../../src/assets/tomoCare-system-diagram.png",
+    backgroundImage: "/assets/tomocare-img.jpg",
+    heroImage: "/assets/tomoCare-system-diagram.png",
 
     phaseNav: [
         { title: "Phase 0: Working Brain", stats: "Shipped", pageUrl: "/tomo-care/phase-0" },

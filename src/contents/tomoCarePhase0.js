@@ -2,7 +2,7 @@ export const tomoCarePhase0Content = {
     title: "TomoCare Phase 0: Working Brain",
     description:
         "Phase 0 is the trust foundation behind TomoCare. Before any chatbot or assistant layer, I built a provenance first pipeline that turns scattered pet care PDFs into auditable records, structured extractions, trusted events, and a real Google Calendar reminder for my dog Momo's next Librela shot.",
-    backgroundImage: "../../src/assets/girl-and-dog01.jpg",
+    backgroundImage: "/assets/girl-and-dog01.jpg",
     heroVideo:"",
 
     phaseNav: [
@@ -44,7 +44,7 @@ export const tomoCarePhase0Content = {
         ],
         callout:
             "Phase 0 is not the visible product. It is the system underneath. The piece that has to be right before any conversational layer can be trusted to act on its own.",
-        diagramSvg:"../../src/assets/phase0-working-brain.svg"
+        diagramSvg:"/assets/phase0-working-brain.svg"
     },
 
     outcome: {
@@ -57,7 +57,7 @@ export const tomoCarePhase0Content = {
             "Reminder scheduled one week before the due date, with full provenance metadata",
             "Google Calendar sync designed to update existing events rather than create duplicates",
         ],
-        imgUrl: "../../src/assets/img06-actual-google-cal-reminder-autocreated-byAIAgent.png",
+        imgUrl: "/assets/img06-actual-google-cal-reminder-autocreated-byAIAgent.png",
         caption:
             "The end of the pipeline: a real Google Calendar reminder for Momo's next Librela dose, with rule version, due date, last completed injection, and a TomoCare event ID embedded in the description for traceability.",
     },
@@ -96,7 +96,7 @@ export const tomoCarePhase0Content = {
                 title: "Private source storage",
                 description:
                     "Original PDFs are stored in a private Supabase Storage bucket using stable storage keys. The database stores the file reference, not a temporary signed URL. This matters because temporary URLs expire; stable references survive. This is the source truth layer — immutable original documents.",
-                imgUrl: "../../src/assets/img12-supabase-tomoDocs-bucket.png",
+                imgUrl: "/assets/img12-supabase-tomoDocs-bucket.png",
                 caption:
                     "Source PDFs in private Supabase Storage, organized by document date.",
             },
@@ -104,7 +104,7 @@ export const tomoCarePhase0Content = {
                 title: "Normalized documents layer",
                 description:
                     "Each file is linked to a row in the `documents` table, which becomes the source record for everything derived later. Receipts and lab reports are normalized into the same table with consistent metadata.",
-                imgUrl: "../../src/assets/img11-supabase-ingested-docs-in-table.png",
+                imgUrl: "/assets/img11-supabase-ingested-docs-in-table.png",
                 caption:
                     "The documents table — every PDF gets a row that becomes the source record for everything derived from it.",
             },
@@ -112,7 +112,7 @@ export const tomoCarePhase0Content = {
                 title: "Auditable text layer",
                 description:
                     "A Python pipeline extracts PDF text and stores it in `documents.raw_text` so I can inspect what the system actually read before sending anything to a model. This is the audit checkpoint that makes everything downstream debuggable.",
-                imgUrl: "../../src/assets/img09-rawtext-preview-redact.png",
+                imgUrl: "/assets/img09-rawtext-preview-redact.png",
                 caption:
                     "Raw extracted text stored verbatim before any model call. The auditable foundation for everything downstream.",
             },
@@ -120,7 +120,7 @@ export const tomoCarePhase0Content = {
                 title: "Structured extraction (candidate truth)",
                 description:
                     "An ADK agent reads `raw_text`, calls Gemini, and stores structured output in `documents.text_extracted` as JSONB. This is candidate truth — probabilistic AI output, stored for inspection and debugging, not yet promoted to anything automation can act on.",
-                imgUrl: "../../src/assets/googleADK.jpg",
+                imgUrl: "/assets/googleADK.jpg",
                 caption:
                     "The extraction agent in Google ADK Web. Root agent orchestrates extract_document and supporting tools; structured output flows back to the database as JSONB.",
             },
@@ -146,7 +146,7 @@ export const tomoCarePhase0Content = {
                 title: "Provenance first",
                 body:
                     "Every derived record points back to a source document through `doc_id`. That makes the system inspectable, debuggable, and trustworthy. If a fact looks wrong, I can trace it to the original receipt in one query.",
-                imgUrl: "../../src/assets/img05-Supabase-last-planned-event.png",
+                imgUrl: "/assets/img05-Supabase-last-planned-event.png",
                 caption:
                     "Every event row points back to its source document via doc_id. The provenance principle made concrete.",
             },

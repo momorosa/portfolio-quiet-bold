@@ -2,7 +2,7 @@ export const tomoCarePhase1Content = {
     title: "TomoCare Phase 1: Verification UI",
     description:
         "Phase 1 makes trust visible. After building the working brain underneath TomoCare, I designed and built a review interface where candidate truth can be compared against the source, corrected by a human, and promoted into trusted, materialized records only after approval.",
-    backgroundImage: "../../src/assets/rainydaywithmypup.jpg",
+    backgroundImage: "/assets/rainydaywithmypup.jpg",
 
     phaseNav: [
         {
@@ -59,7 +59,7 @@ export const tomoCarePhase1Content = {
             "Save draft and Save & verify actions wired into the approval flow",
             "Approve materializes verified rows into normalized tables, with the full triage result persisted on the document as a queryable audit record",
         ],
-        imgUrl: "../../src/assets/verify-save.png",
+        imgUrl: "/assets/verify-save.png",
         caption:
             "The verification UI in action: the review queue on the left, source PDF in the middle, and the working panel on the right. This is the trust surface where candidate truth becomes trusted truth only after review.",
     },
@@ -99,7 +99,7 @@ export const tomoCarePhase1Content = {
                 imgOrientation: "landscape",
                 description:
                     "I designed the left panel as an operational queue rather than a generic file list. Documents needing review surface first, while verified records can move into a secondary archive state. The queue fetches only lightweight metadata so the interface stays responsive as more records are added.",
-                imgUrl: "../../src/assets/review-queue.png",
+                imgUrl: "/assets/review-queue.png",
                 caption:
                     "The review queue keeps active work visible and avoids loading heavy extracted payloads until a document is selected.",
             },
@@ -108,7 +108,7 @@ export const tomoCarePhase1Content = {
                 imgOrientation: "landscape",
                 description:
                     "The middle panel shows the original PDF through a signed Supabase URL so the source document stays visible during review. This was a deliberate design choice. I did not want editing to happen in isolation from evidence.",
-                imgUrl: "../../src/assets/source-doc.png",
+                imgUrl: "/assets/source-doc.png",
                 caption:
                     "The source PDF stays visible while reviewing extracted output, reinforcing provenance at the moment of decision.",
             },
@@ -117,7 +117,7 @@ export const tomoCarePhase1Content = {
                 imgOrientation: "portrait",
                 description:
                     "The right panel became the heart of the phase. I added tabs for key fields, raw text, and JSON so the reviewer can move between a distilled view and the underlying evidence. This keeps the UI useful for both quick confirmation and deeper debugging.",
-                imgUrl: "../../src/assets/working-panel-rawText.png",
+                imgUrl: "/assets/working-panel-rawText.png",
                 caption:
                     "The working panel balances clarity and inspectability with tabbed access to key fields, raw text, and structured JSON.",
             },
@@ -126,7 +126,7 @@ export const tomoCarePhase1Content = {
                 imgOrientation: "landscape",
                 description:
                     "Before the working panel renders, an AI reviewer scores the existing extraction field by field and assigns each one a state: auto-confirmed when it is confident, needs-confirmation when the value is uncertain or the field is high-stakes, and unreadable-source when the document itself is unclear. Every flag carries a written reason. The reviewer scores the existing extraction — it does not re-extract. It surfaces and ranks; it never auto-approves.",
-                imgUrl: "../../src/assets/triage.png",
+                imgUrl: "/assets/triage.png",
                 caption:
                     "The AI reviewer's per-field output: needs-confirmation items sorted to the top with the reasoning that escalated them. Here it caught a genuine multi-date ambiguity on the date fields and auto-confirmed the fields it was sure about.",
             },  
@@ -135,7 +135,7 @@ export const tomoCarePhase1Content = {
                 imgOrientation: "landscape",
                 description:
                     "I added an explicit edit mode so humans can correct candidate truth before it becomes trusted truth. For receipts and visits, this includes editable invoice IDs, events, descriptions, dates, and cost items. Draft changes can be saved without verification, which preserves work without prematurely promoting the record.",
-                imgUrl: "../../src/assets/working-panel-correction.png",
+                imgUrl: "/assets/working-panel-correction.png",
                 caption:
                     "Edit mode allows candidate truth to be corrected before it is promoted into trusted rows.",
             },
@@ -144,7 +144,7 @@ export const tomoCarePhase1Content = {
                 imgOrientation: "landscape",
                 description:
                     "When the reviewer chooses Save & verify or Approve, the document status moves to verified and the extracted record is materialized into normalized tables such as events and cost_items. The full AI triage result is persisted on the document — the model used, per-field state, and the reasoning behind every escalation — so the system can always explain exactly what the AI flagged, what the human confirmed, and why.",
-                imgUrl: "../../src/assets/path1.png",
+                imgUrl: "/assets/path1.png",
                 caption:
                     "The verification loop closes in the database: the document is marked verified and the full triage result is persisted, so every promotion can be traced to what the AI flagged and what the human confirmed,"
             },
@@ -159,7 +159,7 @@ export const tomoCarePhase1Content = {
                 title: "Trust must be visible",
                 body:
                     "The verification step is not a back-end state change disguised as UX. It is the product moment where a human compares source evidence against extracted output and decides what the system is allowed to trust.",
-                imgUrl: "../../src/assets/comparison.png",
+                imgUrl: "/assets/comparison.png",
                 caption:
                     "Keeping the source and the extraction visible side by side makes trust legible instead of implicit.",
             },

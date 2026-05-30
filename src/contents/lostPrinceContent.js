@@ -8,7 +8,7 @@ export const lostPrinceContent = {
         "Technical Artist & Level Designer",
         "Unity Developer (C#)"
     ],
-    backgroundImage: "../../src/assets/lost-prince/lostPrince-img01.jpg",
+    backgroundImage: "/assets/lost-prince/lostPrince-img01.jpg",
     video: "/previews/lost-prince.mp4",
     quote: {
         text: "It is only with the heart that one can see rightly; what is essential is invisible to the eye.",
@@ -80,31 +80,31 @@ export const lostPrinceContent = {
     },
     images: [
         {
-            src: "../../src/assets/lost-prince/Conceptualization.jpg",
+            src: "/assets/lost-prince/Conceptualization.jpg",
             caption: "Initial ideation combining narrative mapping, environment planning, and interaction design. Each sketch captures how literary moments from The Little Prince evolve into VR scenes, puzzle objectives, and player-driven pathways."
         },
         {
-            src: "../../src/assets/lost-prince/MoodBoard.jpg",
+            src: "/assets/lost-prince/MoodBoard.jpg",
             caption: "A visual foundation blending Saint-Exupéry’s original illustrations with warm, whimsical world-building references. This mood board defined the project’s artistic direction—anchoring color, lighting, and environment design in a balance of nostalgia and modern XR storytelling."
         },
         {
-            src: "../../src/assets/lost-prince/lostPrince-img01.jpg",
+            src: "/assets/lost-prince/lostPrince-img01.jpg",
             caption: "The Aviator’s Study built in Unity: a fully hand-assembled environment combining curated low-poly assets, custom lighting, and narrative-driven props. The space introduces players to the world through environmental storytelling rather than text or UI."
         },
         {
-            src: "../../src/assets/lost-prince/lostPrince-img02.jpg",
+            src: "/assets/lost-prince/lostPrince-img02.jpg",
             caption: "A closer look at the interactive workspace where objects, notes, and framed illustrations signal puzzle cues and story context. Every prop is intentionally placed to support narrative discovery and guide player attention through subtle environmental hints."
         },
         {
-            src: "../../src/assets/lost-prince/AsteroidB612.jpg",
+            src: "/assets/lost-prince/AsteroidB612.jpg",
             caption: "A stylized floating island built to reinterpret the Prince’s tiny planet as an explorable VR environment. Modular geometry, atmospheric VFX, and layered skyboxes work together to create a sense of scale and solitude while maintaining the story’s dream-like tone."
         },
         {
-            src: "../../src/assets/lost-prince/Instruction.jpg",
+            src: "/assets/lost-prince/Instruction.jpg",
             caption: "Diegetic onboarding designed directly into the environment. Instead of overlay UI, interaction tips are presented as an in-world reference sheet, teaching movement and actions through narrative-friendly props. This approach keeps immersion intact while giving players the guidance they need inside the Aviator’s Study."
         },
         {
-            src: "../../src/assets/lost-prince/LostPrince-S01.jpg",
+            src: "/assets/lost-prince/LostPrince-S01.jpg",
             caption: "The title screen is staged as part of the story: the Aviator’s crashed plane in the Sahara desert, the moment he first meets the Little Prince. Instead of a flat menu, the start space becomes a narrative entry point—grounding players in the world and setting the tone for a seamless transition from story to experience."
         },
 

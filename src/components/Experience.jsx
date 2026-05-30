@@ -4,15 +4,7 @@ import { Environment, Float, PresentationControls } from '@react-three/drei'
 import useBreakpoint from '../hooks/useBreakpoint.js'
 import Particles from '../r3f/Particles.jsx'
 // import Laptop from '../r3f/Laptop.jsx'
-import texture from '../assets/chef-claude.png'
-import FadingImageDisplacement from './FadingImageDisplacement.jsx'
-
-
-import DisplacementImg from '../assets/textures/11.jpg'
-import FadingImage from './FadingImage.jsx'
 // import ColorSystem from '../r3f/ColorSystem.jsx'
-
-// import FadingImageNoise from './FadingImageNoise.jsx'
 
 export default function Experience() {
 

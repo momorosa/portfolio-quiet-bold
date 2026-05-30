@@ -11,7 +11,7 @@ export const projects = {
             ],
             buttonLabel: "View Project",
             buttonUrl: "/lab/chef-claude",
-            imgUrl:"../../src/assets/chef-claude.png",
+            imgUrl:"/assets/chef-claude.png",
             gifUrl:"/previews/chefClaude-low.gif",
         },
         {
@@ -25,7 +25,7 @@ export const projects = {
             ],
             buttonLabel: "View Project",
             buttonUrl: "https://medium.com/@momorosa.design/a-step-by-step-guide-to-bringing-an-ai-character-to-life-2828514037bc",
-            imgUrl:"../../src/assets/Daisy-enh.jpg",
+            imgUrl:"/assets/Daisy-enh.jpg",
             gifUrl:"/previews/ai-character.gif",
         },        
         {
@@ -39,7 +39,7 @@ export const projects = {
             ],  
             buttonLabel: "Play Game",
             buttonUrl: "/lab/wizard-game",
-            imgUrl:"../../src/assets/previews/wizard-game.jpg",
+            imgUrl:"/assets/previews/wizard-game.jpg",
             videoUrl:"/previews/wizard-game.mp4",
         },
         {
@@ -53,7 +53,7 @@ export const projects = {
             ],
             buttonLabel: "Try Portals",
             buttonUrl:"/lab/portals",
-            imgUrl:"../../src/assets/previews/portal.jpg",
+            imgUrl:"/assets/previews/portal.jpg",
             videoUrl:"/previews/portals.mp4",
         },
         {
@@ -67,7 +67,7 @@ export const projects = {
             ],
             buttonLabel: "View Project",
             buttonUrl:"/lab/lost-prince",
-            imgUrl:"../../src/assets/lost-prince/LostPrince-img01.jpg",
+            imgUrl:"/assets/lost-prince/lostPrince-img01.jpg",
             videoUrl:"/previews/lost-prince.mp4",
         },
         
@@ -82,7 +82,7 @@ export const projects = {
             ],
             buttonLabel: "Try Shader FXs",
             buttonUrl:"/lab/image-transitions",
-            imgUrl:"../../src/assets/previews/image-transition.jpg",
+            imgUrl:"/assets/previews/image-transition.jpg",
             videoUrl:"/previews/image-transitions.mp4",
         },
         
