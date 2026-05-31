@@ -9,13 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-      (function () {
-        var saved = localStorage.getItem("theme");
-        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        var isDark = saved === "dark" || (!saved && prefersDark);
-        document.documentElement.classList.toggle("dark", isDark);
-        document.documentElement.dataset.theme = isDark ? "dark" : "light";
-      })();
+      document.documentElement.classList.add("dark");
+      document.documentElement.dataset.theme = "dark";
     </script>
     <meta name="description" content="Portfolio of Rosa Choi, a design strategist and technologist based in San Francisco." />
     <title>Quiet Bold</title>

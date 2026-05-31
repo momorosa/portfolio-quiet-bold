@@ -1,30 +1,20 @@
 import { createContext, useContext, useEffect, useMemo, useState } from "react"
+// Theme is locked to dark — toggleTheme is a no-op kept for API compatibility
 
 const ThemeContext = createContext(null)
 
 export function ThemeProvider({ children }) {
-    const [theme, setTheme] = useState(() => {
-        const saved = localStorage.getItem("theme")
-        if (saved === "light" || saved === "dark") return saved
-        
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-        return prefersDark ? "dark" : "light"
-    })
+    const [theme] = useState("dark")
 
-    const [isTransitioning, setIsTransitioning] = useState(false)
+    const isTransitioning = false
 
     useEffect(() => {
         const root = document.documentElement
-        root.dataset.theme = theme
-        root.classList.toggle("dark", theme === "dark")
-        localStorage.setItem("theme", theme)
-    }, [theme])
+        root.dataset.theme = "dark"
+        root.classList.add("dark")
+    }, [])
 
-    const toggleTheme = () => {
-        setIsTransitioning(true)
-        setTheme((prev) => (prev === "dark" ? "light" : "dark"))
-        window.setTimeout(() => setIsTransitioning(false), 420)
-    }
+    const toggleTheme = () => {}
 
     const value = useMemo(
         () => ({
