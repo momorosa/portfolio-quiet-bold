@@ -27,7 +27,7 @@ export default function ProjectHeading({
             {/* Background Image */}
             <div
                 className={clsx(
-                  "absolute inset-0 bg-cover bg-center bg-fixed",
+                  "absolute inset-0 bg-cover bg-center md:bg-fixed",
                   useMask &&
                     "mask-alpha mask-b-from-black mask-b-from-50% mask-b-to-transparent"
                 )}
