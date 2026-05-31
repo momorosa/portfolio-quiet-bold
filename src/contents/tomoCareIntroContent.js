@@ -14,7 +14,7 @@ export const tomoCareIntroContent = {
                 "A concise spec for a governed agentic system: what TomoCare is and isn't, how candidate facts become trusted truth, and where human approval is required.",
             buttonProps: { label: "Read brief", href: "/tomo-care" },
             mediaType: "image",
-            mediaSrc: "../../src/assets/tomoCare-system-diagram.png",
+            mediaSrc: "/assets/tomoCare-system-diagram.png",
             mediaAlt: "TomoCare project brief overview",
         },
         {
@@ -27,8 +27,8 @@ export const tomoCareIntroContent = {
                 "Built the provenance-first pipeline: private document storage, auditable raw text, JSONB extraction, and a trusted events table. Added deterministic Librela scheduling and closed-loop Google Calendar upsert with persisted external refs.",
             buttonProps: { label: "Read case study", href: "/tomo-care/phase-0" },
             mediaType: "image",
-            mediaSrc: "../../src/assets/tomocare-img.jpg",
-            mediaPoster: "../../src/assets/tomocare-img.jpg",
+            mediaSrc: "/assets/tomocare-img.jpg",
+            mediaPoster: "/assets/tomocare-img.jpg",
             mediaAlt: "TomoCare Phase 0 working system preview",
         },
         {
