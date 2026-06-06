@@ -106,7 +106,7 @@ export default function TomoCarePhase1() {
           newTab: false,
         }))}
         heroEmbed={{
-          src: "https://player.vimeo.com/video/1194096530?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1",
+          src: "https://player.vimeo.com/video/1194096530?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&loop=1&muted=1",
           title: "TomoCare Phase 1 Verification UI demo",
           className: "rounded-2xl border border-white/60",
         }}

@@ -171,6 +171,7 @@ export default function ProjectHeading({
                                     className="w-full h-full"
                                     frameBorder="0"
                                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                                    allowFullScreen
                                     referrerPolicy="strict-origin-when-cross-origin"
                                 />
                             </div>
