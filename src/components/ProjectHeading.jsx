@@ -1,6 +1,7 @@
 import clsx from "clsx"
 import Button from "./Button"
 import { FancyLink } from "./FancyLink.jsx"
+import ZoomableImage from "./ZoomableImage.jsx"
 
 export default function ProjectHeading({
     className = "",
@@ -189,13 +190,21 @@ export default function ProjectHeading({
                             />
                         ) : (
                             <div className={clsx(heroImage.frameClassName)}>
-                                <img
-                                    src={heroImage.src}
-                                    alt={heroImage.alt || "Project hero"}
-                                    className={clsx("w-full shadow-lg", heroImage.className)}
-                                    loading="eager"
-                                    decoding="async"
-                                />
+                                {heroImage.zoomable ? (
+                                    <ZoomableImage
+                                        src={heroImage.src}
+                                        alt={heroImage.alt || "Project hero"}
+                                        imgClassName={clsx("shadow-lg", heroImage.className)}
+                                    />
+                                ) : (
+                                    <img
+                                        src={heroImage.src}
+                                        alt={heroImage.alt || "Project hero"}
+                                        className={clsx("w-full shadow-lg", heroImage.className)}
+                                        loading="eager"
+                                        decoding="async"
+                                    />
+                                )}
                             </div>
                         )}
                     </div>

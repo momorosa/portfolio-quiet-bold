@@ -13,6 +13,7 @@ import {
 } from "../components/CaseStudy.jsx"
 import VerificationUIDiagram from "../components/VerificationUIDiagram.jsx"
 import Footer from "../components/Footer.jsx"
+import ZoomableImage from "../components/ZoomableImage.jsx"
 
 function MediaFigure({ src, alt, caption, className = "" }) {
   if (!src) return null
@@ -20,12 +21,10 @@ function MediaFigure({ src, alt, caption, className = "" }) {
   return (
     <figure className={className}>
       <CaseStudyMediaFrame>
-        <img
+        <ZoomableImage
           src={src}
           alt={alt || caption || "TomoCare Phase 1 evidence"}
-          className="w-full object-cover"
-          loading="lazy"
-          decoding="async"
+          imgClassName="object-cover"
         />
       </CaseStudyMediaFrame>
       {caption ? (

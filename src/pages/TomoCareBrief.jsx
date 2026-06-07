@@ -76,6 +76,7 @@ export default function TomoCareBrief() {
           src: content.diagramImage || "/assets/tomoCare-system-diagram.png",
           alt: "TomoCare system architecture: ingestion, governance, orchestration, and tool execution across all phases",
           className: "rounded-2xl border border-white/10",
+          zoomable: true,
         }}
       />
 

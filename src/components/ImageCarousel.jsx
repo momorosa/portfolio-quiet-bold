@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { AnimatePresence, motion } from "framer-motion"
+import ZoomableImage from "./ZoomableImage.jsx"
 
 export default function ImageCarousel({ items, autoDelay = 15000, reduceMotion }) {
     const [index, setIndex] = useState(0)
@@ -23,24 +24,30 @@ export default function ImageCarousel({ items, autoDelay = 15000, reduceMotion }
         <div className="relative w-full overflow-hidden rounded-3xl bg-black/40 border border-white/10">
             {/* Image area */}
              <div className="aspect-[16/9] w-full overflow-hidden">
-                <AnimatePresence mode="wait">
-                    <motion.img
-                        key={current.src}
-                        src={current.src}
-                        alt={current.caption || "Project image"}
-                        className="h-full w-full object-cover"
-                        initial={reduceMotion ? { opacity: 1 } : { opacity: 0, x: 24 }}
-                        animate={reduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-                        exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -24 }}
-                        transition={
-                            reduceMotion
-                            ? { duration: 0 }
-                            : { duration: 0.6, ease: "easeInOut" }
-                        }
-                        loading="eager"
-                        decoding="async"
-                    />
-                </AnimatePresence>
+                <ZoomableImage
+                    src={current.src}
+                    alt={current.caption || "Project image"}
+                    className="h-full"
+                >
+                    <AnimatePresence mode="wait">
+                        <motion.img
+                            key={current.src}
+                            src={current.src}
+                            alt={current.caption || "Project image"}
+                            className="h-full w-full object-cover"
+                            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, x: 24 }}
+                            animate={reduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+                            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, x: -24 }}
+                            transition={
+                                reduceMotion
+                                ? { duration: 0 }
+                                : { duration: 0.6, ease: "easeInOut" }
+                            }
+                            loading="eager"
+                            decoding="async"
+                        />
+                    </AnimatePresence>
+                </ZoomableImage>
 
                 {/* Left / right arrows */}
                 <button

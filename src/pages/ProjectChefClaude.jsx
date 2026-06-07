@@ -1,5 +1,6 @@
 import { chefClaudeContent as content } from "../contents/chefClaudeContent.js"
 import ProjectHeading from "../components/ProjectHeading.jsx"
+import ZoomableImage from "../components/ZoomableImage.jsx"
 import RelatedLabProjects from "../components/RelatedLabProjects.jsx"
 import Footer from "../components/Footer.jsx"
 import {
@@ -32,6 +33,7 @@ export default function ProjectChefClaude() {
                     src: content.heroImage,
                     alt: "Chef Claude app screenshot",
                     frameClassName: "lg:max-h-[440px] lg:overflow-y-auto lg:rounded-2xl",
+                    zoomable: true,
                 }}
             />
 
@@ -121,10 +123,10 @@ export default function ProjectChefClaude() {
                         {challenge.gif ? (
                             <div className="mt-8">
                                 <CaseStudyCard className="overflow-hidden p-0">
-                                    <img
+                                    <ZoomableImage
                                         src={challenge.gif}
                                         alt={challenge.subTitle}
-                                        className="w-full h-auto object-cover"
+                                        imgClassName="h-auto object-cover"
                                     />
                                 </CaseStudyCard>
                             </div>

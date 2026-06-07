@@ -13,6 +13,7 @@ import {
 } from "../components/CaseStudy.jsx"
 import WorkingBrainDiagram from "../components/WorkingBrainDiagram.jsx"
 import Footer from "../components/Footer.jsx"
+import ZoomableImage from "../components/ZoomableImage.jsx"
 
 
 function MediaFigure({ src, alt, caption, className = "" }) {
@@ -21,12 +22,10 @@ function MediaFigure({ src, alt, caption, className = "" }) {
   return (
     <figure className={className}>
       <CaseStudyMediaFrame>
-        <img
+        <ZoomableImage
           src={src}
           alt={alt || caption || "TomoCare Phase 0 evidence"}
-          className="w-full object-cover"
-          loading="lazy"
-          decoding="async"
+          imgClassName="object-cover"
         />
       </CaseStudyMediaFrame>
       {caption ? (
