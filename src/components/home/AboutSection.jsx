@@ -41,13 +41,13 @@ export default function AboutSection({ onLogoClick }) {
                         <Social direction="row" baseColor="var(--text-muted)" />
                     </h2>
 
-                    <p className="pb-2 py-6 text-lg leading-relaxed text-[var(--text)] md:text-md">
+                    <div className="pb-2 py-6 text-lg leading-relaxed text-[var(--text)] md:text-md">
                         {aboutContent.description.map((paragraph, index) => (
                             <p className="pb-4" key={index}>
                                 {paragraph}
                             </p>
                         ))}
-                    </p>
+                    </div>
                     <p className="py-4 text-md leading-relaxed text-[var(--text-muted)] md:text-base">
                         {aboutContent.disclaimer}
                     </p>

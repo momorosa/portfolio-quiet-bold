@@ -85,7 +85,7 @@ export default function TomoCareBrief() {
         {/* Governance model — the most differentiating content, leads the page */}
         <CaseStudySection
           title={content.governanceModel.title}
-          className="bg-black pt-40 md:pt-120"
+          className="bg-black pt-50 md:pt-60 lg:pt-80"
         >
           <div className="space-y-6">
             {content.governanceModel.tiers.map((tier, index) => (

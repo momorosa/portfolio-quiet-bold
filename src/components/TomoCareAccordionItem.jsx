@@ -63,15 +63,17 @@ export default function TomoCareAccordionItem({
                     </h3>
 
                     {phase.keyOutcomes && (
-                        <p className="mt-2 flex items-start gap-2 text-sm leading-6 text-[var(--text-muted)] md:text-[15px]">
-                            <span className={`material-symbols-outlined mt-[1px] text-[18px] ${metaIconColor}`}>
-                                {phase.metaIcon || "strategy"}
-                            </span>
-                            <span className={`font-semibold ${metaIconColor}`}>
-                                {phase.keyOutcomesTitle}
+                        <div className="mt-2 flex flex-col md:flex-row md:items-start gap-1 md:gap-2 text-sm leading-6 text-[var(--text-muted)] md:text-[15px]">
+                            <span className="inline-flex items-start gap-2">
+                                <span className={`material-symbols-outlined mt-[1px] text-[18px] ${metaIconColor}`}>
+                                    {phase.metaIcon || "strategy"}
+                                </span>
+                                <span className={`font-semibold ${metaIconColor}`}>
+                                    {phase.keyOutcomesTitle}
+                                </span>
                             </span>
                             <span>{phase.keyOutcomes}</span>
-                        </p>
+                        </div>
                     )}
                 </button>
 

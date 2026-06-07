@@ -26,16 +26,17 @@ export default function ProjectChefClaude() {
                     rightIcon: "restaurant",
                     className: "text-white"
                 }}
-                ctaCamption={content.ctaCaption}
+                ctaCaption={content.ctaCaption}
                 roles={content.roles}
                 heroImage={{
                     src: content.heroImage,
                     alt: "Chef Claude app screenshot",
+                    frameClassName: "lg:max-h-[440px] lg:overflow-y-auto lg:rounded-2xl",
                 }}
             />
 
             {/* Overview */}
-            <CaseStudySection title="Overview" className="md:pt-180 pt-90">
+            <CaseStudySection title="Overview" className="md:pt-80 pt-50 lg:pt-80">
                 <CaseStudyBody>{content.overview}</CaseStudyBody>
             </CaseStudySection>
           

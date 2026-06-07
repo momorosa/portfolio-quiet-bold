@@ -10,14 +10,14 @@ export default function ProjectHeading({
     title,
     description,
     button,
-    ctaCamption,
+    ctaCaption,
     roles = [],
     navItems = [],
     navTitle = "Phases",
     heroImage,
     heroVideo,
     heroEmbed,
-    minHeightClass = "min-h-[90svh] h-screen",
+    minHeightClass = "min-h-[90svh] lg:h-screen",
 }) {
     const showNav = Array.isArray(navItems) && navItems.length > 0
     const showRoles = !showNav && Array.isArray(roles) && roles.length > 0
@@ -27,7 +27,7 @@ export default function ProjectHeading({
             {/* Background Image */}
             <div
                 className={clsx(
-                  "absolute inset-0 bg-cover bg-center md:bg-fixed",
+                  "absolute inset-0 bg-cover bg-center lg:bg-fixed",
                   useMask &&
                     "mask-alpha mask-b-from-black mask-b-from-50% mask-b-to-transparent"
                 )}
@@ -39,9 +39,9 @@ export default function ProjectHeading({
             <div className={clsx("absolute inset-0", tintClass)} aria-hidden="true" />
 
             {/* Content */}
-            <div className="relative z-10 max-w-[1120px] mx-auto h-full px-6 md:px-10 py-16 flex flex-col md:flex-row md:items-center gap-10">
+            <div className="relative z-10 max-w-[1120px] mx-auto h-full px-6 md:px-10 py-16 flex flex-col lg:flex-row lg:items-center gap-10">
                 {/* Left: Title / Copy / CTA */}
-                <div className="md:w-1/2 mt-20 md:mt-10">
+                <div className="lg:w-1/2 mt-20 lg:mt-10">
                     {title && (
                         <h1 className="text-4xl md:text-6xl font-semibold md:leading-[1.2]">
                             {title}
@@ -68,8 +68,8 @@ export default function ProjectHeading({
                                 {button.label}
                             </Button>
                         
-                            {ctaCamption && (
-                                <p className="text-zinc-400 italic mt-3">{ctaCamption}</p>
+                            {ctaCaption && (
+                                <p className="text-zinc-400 italic mt-3">{ctaCaption}</p>
                             )}
                         </>
                     )}
@@ -77,14 +77,14 @@ export default function ProjectHeading({
 
                 {/* Right: Phases nav (preferred) OR legacy Roles list */}
                 {(showNav || showRoles) && (
-                    <div className="md:w-1/2 md:pl-4">
+                    <div className="lg:w-1/2 lg:pl-4">
                         <div className="p-6">
                             {showNav && (
                                 <>
-                                    <p className="text-sm uppercase tracking-wide text-white/70 mb-4">
+                                    <p className="text-sm uppercase tracking-wide text-white/70  mb-4">
                                         {navTitle}
                                     </p>
-                                    <ul className="text-xl">
+                                    <ul className="text-md md:text-xl">
                                         {navItems.map((item, i) => {
                                             const isCurrent = item.current
                                             const isDisabled = item.disabled || !item.href
@@ -161,7 +161,7 @@ export default function ProjectHeading({
 
             {/* Hero image / video / embed pinned to bottom */}
             {(heroImage?.src || heroVideo?.src || heroEmbed?.src) && (
-                <div className="absolute left-1/2 bottom-0 z-20 w-full max-w-[1120px] px-6 md:px-10 -translate-x-1/2 translate-y-4/5">
+                <div className="absolute left-1/2 bottom-0 z-20 w-full max-w-[1120px] px-6 md:px-10 -translate-x-1/2 translate-y-3/5 ">
                     <div>
                         {heroEmbed?.src ? (
                             <div className={clsx("aspect-video w-full shadow-lg overflow-hidden", heroEmbed.className)}>
@@ -188,13 +188,15 @@ export default function ProjectHeading({
                                 controls={heroVideo.controls ?? false}
                             />
                         ) : (
-                            <img
-                                src={heroImage.src}
-                                alt={heroImage.alt || "Project hero"}
-                                className={clsx("w-full shadow-lg", heroImage.className)}
-                                loading="eager"
-                                decoding="async"
-                            />
+                            <div className={clsx(heroImage.frameClassName)}>
+                                <img
+                                    src={heroImage.src}
+                                    alt={heroImage.alt || "Project hero"}
+                                    className={clsx("w-full shadow-lg", heroImage.className)}
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </div>
                         )}
                     </div>
                 </div>

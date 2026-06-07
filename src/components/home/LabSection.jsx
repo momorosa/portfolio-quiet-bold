@@ -92,7 +92,7 @@ export default function LabSection() {
                         ref={scrollerRef}
                         className="
                             hide-scrollbar
-                            flex gap-5 overflow-x-auto overflow-y-hidden pb-2
+                            flex gap-2 md:gap-5 overflow-x-auto overflow-y-hidden pb-2
                             snap-x snap-mandatory
                             lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0
                         "

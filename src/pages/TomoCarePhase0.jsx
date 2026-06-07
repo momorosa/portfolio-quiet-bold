@@ -88,7 +88,7 @@ export default function TomoCarePhase0() {
         {/* Intro */}
         <CaseStudySection
           title={content.intro.eyebrow}
-          className="bg-black pt-40 md:pt-120"
+          className="bg-black pt-40 md:pt-60 lg:pt-80"
           narrow={false}
         >
           <div className="max-w-[760px] space-y-6">

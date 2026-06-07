@@ -150,10 +150,10 @@ function CompactMediaPreview({ title, posterSrc, gifSrc, videoSrc }) {
   }
 
   useEffect(() => {
-    if (!active) return
+    if (!active && !isTouch) return
     const v = videoRef.current
     if (v) v.play().catch(() => {})
-  }, [active])
+  }, [active, isTouch])
 
   const showMotion = active || isTouch
 
