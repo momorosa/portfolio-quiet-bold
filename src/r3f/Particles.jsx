@@ -281,12 +281,12 @@ export default function Particles() {
   })
 
   return (
-    <>
+    <group rotation={[0, THREE.MathUtils.degToRad(20), 0]}>
       <mesh ref={planeRef} visible={false}>
         <planeGeometry args={[10, 10]} />
       </mesh>
 
       <points geometry={geometry} material={material} />
-    </>
+    </group>
   )
 }
